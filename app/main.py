@@ -27,7 +27,7 @@ def brute_force_password() -> None:
     for i in range(100000000):
         pwd_str = f"{i:08d}"
         password = sha256_hash_str(pwd_str)
-        if password in set(TARGET_HASHES):
+        if password in TARGET_HASHES:
             count += 1
             print(f"found password №{count}:", pwd_str)
         if count == target_count:
