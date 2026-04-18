@@ -23,11 +23,12 @@ def sha256_hash_str(to_hash: str) -> str:
 def brute_force_password() -> None:
     count = 0
     for i in range(100000000):
-        password = sha256_hash_str(f"{i:08d}")
-        if password in PASSWORDS_TO_BRUTE_FORCE:
+        pwd_str = f"{i:08d}"
+        password = sha256_hash_str(pwd_str)
+        if password in set(PASSWORDS_TO_BRUTE_FORCE):
             count += 1
-            print(f"found password №{count}:", i)
-        if count == 10:
+            print(f"found password №{count}:", pwd_str)
+        if count == len(PASSWORDS_TO_BRUTE_FORCE):
             break
 
 
